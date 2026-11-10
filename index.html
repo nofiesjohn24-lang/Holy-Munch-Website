@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#20170f" name="theme-color"/>
+<meta content="Discover Cheesus Balls by Lamon Lokal x Holy Munch. Unang Kagat, Nasa Heaven Agad!" name="description"/>
+<title>Holy Munch | Cheesus Balls</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&amp;family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        /* DOCUMENTATION DROPDOWN */
+        .nav-dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .documentation-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dropdown-arrow {
+            display: inline-block;
+            transition: transform 0.25s ease;
+        }
+
+        .nav-dropdown:hover .dropdown-arrow,
+        .nav-dropdown:focus-within .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 0;
+            z-index: 1000;
+            min-width: 265px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            background: var(--card, #fff);
+            border: 1px solid var(--border, #f0e3cc);
+            border-radius: 14px;
+            box-shadow: 0 15px 35px rgba(48, 39, 25, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(8px);
+            transition: opacity 0.22s ease, transform 0.22s ease,
+                        visibility 0.22s ease;
+        }
+
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown:focus-within .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            padding: 11px 13px;
+            border-radius: 9px;
+            line-height: 1.5;
+            white-space: normal;
+            font-size: 0.9rem;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .dropdown-menu a:hover,
+        .dropdown-menu a:focus-visible {
+            background: var(--secondary, #ffe8a3);
+            color: var(--text, #302719);
+        }
+
+        /* DOCUMENTATION DESIGN */
+        .documentation-section {
+            padding-top: 85px;
+            padding-bottom: 85px;
+        }
+
+        .documentation-group {
+            margin-top: 42px;
+            scroll-margin-top: 110px;
+        }
+
+        .documentation-heading {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .documentation-number {
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            width: 55px;
+            height: 55px;
+            border-radius: 17px;
+            background: var(--secondary, #ffe8a3);
+            color: var(--text, #302719);
+            font-size: 1.05rem;
+            font-weight: 800;
+            box-shadow: 0 5px 14px rgba(48, 39, 25, 0.08);
+        }
+
+        .documentation-heading h3 {
+            margin: 0 0 5px;
+            line-height: 1.35;
+        }
+
+        .documentation-heading p {
+            margin: 0;
+            color: var(--muted, #766b5a);
+            line-height: 1.7;
+        }
+
+        .documentation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .documentation-card {
+            height: 100%;
+            overflow: hidden;
+            background: var(--card, #fff);
+            border: 1px solid var(--border, #f0e3cc);
+            border-radius: 19px;
+            box-shadow: 0 8px 25px rgba(48, 39, 25, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .documentation-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 35px rgba(48, 39, 25, 0.13);
+        }
+
+        .documentation-card img {
+            display: block;
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            transition: transform 0.45s ease;
+        }
+
+        .documentation-card:hover img {
+            transform: scale(1.035);
+        }
+
+        .documentation-text {
+            padding: 22px;
+        }
+
+        .documentation-text > span {
+            display: inline-block;
+            margin-bottom: 9px;
+            color: var(--primary-dark, #e49c00);
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 1.4px;
+        }
+
+        .documentation-text h4 {
+            margin: 0 0 10px;
+            line-height: 1.4;
+        }
+
+        .documentation-text p {
+            margin: 0;
+            color: var(--muted, #766b5a);
+            font-size: 0.94rem;
+            line-height: 1.8;
+        }
+
+        .documentation-note {
+            margin-top: 25px;
+            color: var(--muted, #766b5a);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .nav-links > a,
+        .documentation-toggle {
+            text-decoration: none;
+        }
+
+        /* RESPONSIVE DOCUMENTATION */
+        @media (max-width: 1000px) {
+            .documentation-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .documentation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .documentation-section {
+                padding-top: 60px;
+                padding-bottom: 60px;
+            }
+
+            .documentation-heading {
+                align-items: flex-start;
+                gap: 13px;
+            }
+
+            .documentation-number {
+                width: 46px;
+                height: 46px;
+                border-radius: 14px;
+            }
+
+            .documentation-card img {
+                height: 235px;
+            }
+
+            .nav-dropdown {
+                display: block;
+                width: 100%;
+            }
+
+            .nav-dropdown .documentation-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .dropdown-menu {
+                position: static;
+                display: none;
+                min-width: 0;
+                width: 100%;
+                margin-top: 5px;
+                box-sizing: border-box;
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transform: none;
+                box-shadow: none;
+            }
+
+            .nav-dropdown:hover .dropdown-menu,
+            .nav-dropdown:focus-within .dropdown-menu {
+                display: flex;
+            }
+        }
+
+        
+        #home {
+            scroll-margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+<a aria-label="Open admin dashboard" class="admin-icon-shortcut" href="admin.html" title="Admin Dashboard"><span aria-hidden="true">⚙</span><small>Admin</small></a>
+<div class="intro" id="intro">
+<div class="intro-light"></div>
+<div aria-hidden="true" class="intro-balls">
+<span>🥔</span>
+<span>🧀</span>
+<span>🥔</span>
+<span>🧀</span>
+<span>🥔</span>
+</div>
+<p class="intro-welcome">WELCOME TO</p>
+<h1>Lamon Lokal <span>×</span> Holy Munch</h1>
+<h2>✦ CHEESUS BALLS ✦</h2>
+<p class="intro-tagline">Sumainyo ang sarap!</p>
+<div aria-hidden="true" class="cheese-splash">🧀</div>
+</div>
+<!-- BACKGROUND MUSIC -->
+<audio id="backgroundMusic" loop="" preload="auto" src="assets/music.mp3"></audio>
+<button aria-label="Play background music" class="music-button" id="musicButton" title="Play or pause music" type="button">
+        ♫ <span id="musicLabel">Play Music</span>
+</button>
+<!-- NAVIGATION -->
+<header class="site-header">
+<nav aria-label="Main navigation" class="navbar container">
+<a class="site-name" href="#home">
+<span class="brand-symbol">🧀</span>
+<span>
+<strong>HOLY MUNCH</strong>
+<small>by Lamon Lokal</small>
+</span>
+</a>
+<button aria-expanded="false" aria-label="Open navigation" class="menu-toggle" id="menuToggle" type="button">
+                ☰
+            </button>
+<div class="nav-links" id="navLinks">
+<a href="index.html#home">Home</a><a href="about.html">About</a>
+<a href="product.html">Product</a><a href="documentation.html">Documentations</a>
+<a href="ingredients.html">Ingredients</a><a href="team.html">Team</a>
+<a href="contact.html">Contact</a>
+<a aria-label="Customer page" class="customer-shortcut" href="user.html">♙ Customer</a>
+</div>
+<div aria-label="Our logos" class="header-logos">
+<a href="about.html" title="Holy Munch Brand Logo">
+<img alt="Holy Munch brand logo" src="assets/brand-logo.png"/>
+</a>
+<a href="product.html" title="Cheesus Balls Product Logo">
+<img alt="Cheesus Balls product logo" src="assets/product-logo.png"/>
+</a>
+<a href="team.html" title="Lamon Lokal Group Logo">
+<img alt="Lamon Lokal group logo" src="assets/group-logo.png"/>
+</a>
+</div>
+</nav>
+</header>
+<main>
+<!-- HOME -->
+<section class="hero" id="home">
+<video class="hero-video" id="heroVideo" loop muted playsinline preload="auto" poster="assets/cheesus-balls.jpg">
+<source src="assets/cheesus-background.mp4" type="video/mp4"/>
+</video>
+<div class="hero-overlay"></div>
+<div class="hero-content container">
+<p class="eyebrow">✦ A LITTLE BITE OF HEAVEN ✦</p>
+<h1>
+                    Unang Kagat,<br/>
+<span>Nasa Heaven Agad!</span>
+</h1>
+<p class="hero-description">
+                    Crispy on the outside, cheesy on the inside.
+                    Experience the heavenly taste of our very own Cheesus Balls!
+                </p>
+<div class="hero-buttons">
+<a class="button button-primary" href="product.html">Discover Our Product</a>
+<a class="button button-outline" href="about.html">Our Story</a>
+</div>
+<div class="hero-caption">
+<span>✦</span> Sumainyo ang Cheesus Balls <span>✦</span>
+</div>
+</div>
+<a aria-label="Explore our story" class="scroll-down" href="about.html">↓</a>
+</section>
+<!-- ABOUT -->
+<!-- PRODUCT -->
+<!-- PRODUCT -->
+<!-- WHY HOLY MUNCH -->
+
+<!-- DOCUMENTATION -->
+
+<!-- TEAM -->
+<!-- CONTACT -->
+</main>
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container footer-inner">
+<div>
+<strong>HOLY MUNCH × LAMON LOKAL</strong>
+<p>Cheesus Balls • BSIT-2B</p>
+</div>
+<a href="#home">Back to Top ↑</a>
+<p class="copyright">
+                © <span id="year"></span> Lamon Lokal. Made with 💛
+            </p>
+</div>
+</footer>
+<!-- THEME SWITCHER -->
+<div aria-label="Change website theme" class="theme-panel">
+<span>Theme</span>
+<button aria-label="Gold and orange theme" class="theme-swatch theme-gold" data-primary="#ffb703" data-secondary="#fb8500" title="Gold theme" type="button"></button>
+<button aria-label="Pink theme" class="theme-swatch theme-pink" data-primary="#ff80ab" data-secondary="#e84393" title="Pink theme" type="button"></button>
+<button aria-label="Green theme" class="theme-swatch theme-green" data-primary="#b7d66b" data-secondary="#568f45" title="Green theme" type="button"></button>
+<button aria-label="Blue theme" class="theme-swatch theme-blue" data-primary="#79c8ff" data-secondary="#3478c8" title="Blue theme" type="button"></button>
+</div>
+<!-- KEEP YOUR EXISTING JAVASCRIPT -->
+<script src="script.js"></script>
+</body>
+</html>

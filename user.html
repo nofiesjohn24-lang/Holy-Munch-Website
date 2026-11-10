@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page | Holy Munch</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fffdf7;
+            color: #302719;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 18px 6%;
+            box-shadow: 0 3px 15px #00000012;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: bold;
+            color: #302719;
+            text-decoration: none;
+        }
+
+        .brand span {
+            display: block;
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .nav-links a {
+            color: #302719;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: #e49c00;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1100px;
+            margin: 35px auto;
+        }
+
+        .banner {
+            background: linear-gradient(135deg, #fff0c2, #ffb703);
+            padding: 45px 30px;
+            border-radius: 20px;
+        }
+
+        .banner h1 {
+            font-size: clamp(30px, 5vw, 48px);
+            margin: 10px 0;
+        }
+
+        .banner p {
+            line-height: 1.7;
+        }
+
+        .notice {
+            background: #fff5dc;
+            border-left: 5px solid #ffb703;
+            padding: 15px;
+            margin: 22px 0;
+            border-radius: 8px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #f0e3cc;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px #20170f10;
+        }
+
+        .card h2 {
+            margin-top: 0;
+        }
+
+        .card p {
+            line-height: 1.7;
+        }
+
+        .button {
+            display: inline-block;
+            background: #ffb703;
+            color: #302719;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background: #e49c00;
+        }
+
+        .feedback {
+            margin-top: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin: 15px 0 7px;
+        }
+
+        input, select, textarea {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e3d5bd;
+            border-radius: 9px;
+            font: inherit;
+            background: white;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        #feedbackMessage {
+            color: #367a35;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            color: #766b5a;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .banner {
+                padding: 30px 20px;
+            }
+        }
+            .back-button:hover{background:#fb8500!important;color:#20170f!important}
+    </style>
+</head>
+
+<body>
+<a aria-label="Open admin dashboard" class="admin-icon-shortcut" href="admin.html" title="Admin Dashboard"><span aria-hidden="true">⚙</span><small>Admin</small></a>
+    <header>
+        <nav>
+            <a class="brand" href="index.html">
+                🧀 HOLY MUNCH
+                <span>by Lamon Lokal</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="user.html" aria-current="page">♙ Customer</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>        <button class="back-button" type="button" onclick="if(history.length>1){history.back()}else{location.href='index.html'}" style="display:inline-block;background:#20170f;color:#fff;padding:10px 16px;border:0;border-radius:25px;font-weight:bold;cursor:pointer;margin-bottom:18px">← Back</button>
+        <section class="banner">
+            <p>WELCOME TO HOLY MUNCH</p>
+            <h1>Customer Page</h1>
+            <p>
+                Discover our original and innovated potato cheese balls.
+                Explore our products and share your feedback with us!
+            </p>
+        </section>
+
+        <div class="notice">
+            You can submit feedback using this demo page. Feedback is displayed
+            on screen but is not permanently saved.
+        </div>
+
+        <section class="product-grid">
+            <article class="card">
+                <h2>🧀 Cheesus Balls</h2>
+                <p><strong>Original Product</strong></p>
+                <p>
+                    Crispy potato cheese balls with melting cheese inside,
+                    a breadcrumb coating, and regular dipping sauce.
+                </p>
+                <a class="button" href="ingredients.html">
+                    View Ingredients
+                </a>
+            </article>
+
+            <article class="card">
+                <h2>🥔 KesoDeCrust</h2>
+                <p><strong>Innovated Product</strong></p>
+                <p>
+                    Our upgraded potato cheese balls with cheese powder
+                    on the outside and regular or hot/spicy sauce.
+                </p>
+                <a class="button" href="ingredients.html">
+                    View Ingredients
+                </a>
+            </article>
+
+            <article class="card">
+                <h2>📋 Product Testing</h2>
+                <p>
+                    Explore our product testing process and documentation
+                    to learn how we evaluated our products.
+                </p>
+                <a class="button" href="index.html#documentation">
+                    View Documentation
+                </a>
+            </article>
+        </section>
+
+        <section class="card feedback">
+            <h2>Share Your Feedback</h2>
+            <p>Tell us what you think about our products.</p>
+
+            <form id="feedbackForm">
+                <label for="customerName">Name (optional)</label>
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Enter your name"
+                >
+
+                <label for="productChoice">Which product did you try?</label>
+                <select id="productChoice" required>
+                    <option value="">Select a product</option>
+                    <option value="Cheesus Balls (Original)">
+                        Cheesus Balls (Original)
+                    </option>
+                    <option value="KesoDeCrust (Innovated)">
+                        KesoDeCrust (Innovated)
+                    </option>
+                </select>
+
+                <label for="rating">Your Rating</label>
+                <select id="rating" required>
+                    <option value="">Choose a rating</option>
+                    <option value="5 - Excellent">5 - Excellent</option>
+                    <option value="4 - Very Good">4 - Very Good</option>
+                    <option value="3 - Good">3 - Good</option>
+                    <option value="2 - Fair">2 - Fair</option>
+                    <option value="1 - Needs Improvement">
+                        1 - Needs Improvement
+                    </option>
+                </select>
+
+                <label for="feedback">Comments or Suggestions</label>
+                <textarea
+                    id="feedback"
+                    rows="4"
+                    placeholder="Write your feedback here..."
+                ></textarea>
+
+                <button class="button" type="submit">
+                    Submit Feedback
+                </button>
+
+                <p id="feedbackMessage" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Holy Munch × Lamon Lokal. Made with love and cheese.</p>
+    </footer>
+
+    <script>
+        const feedbackForm = document.getElementById("feedbackForm");
+
+        if (feedbackForm) {
+            feedbackForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const name = document.getElementById("customerName").value.trim();
+                const product = document.getElementById("productChoice").value;
+                const rating = document.getElementById("rating").value;
+                const message = document.getElementById("feedbackMessage");
+
+                message.textContent =
+                    "Thank you" + (name ? ", " + name : "") +
+                    "! Your feedback for " + product +
+                    " has been received in this demo. Rating: " + rating +
+                    ". It has not been permanently saved.";
+
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
